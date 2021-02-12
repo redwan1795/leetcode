@@ -1,0 +1,42 @@
+Does not work if input size is too big i.e. 1534236469
+=======================
+class Solution 
+{
+    public int reverse(int x) 
+    {
+        //long [] numberArray = new long [9999999];  
+        
+        int i = 0;
+        double m = 10;
+        double answer = 0;
+        int isMinus = 0;
+        
+        if ((x * -1) > 0 )
+        {
+            isMinus = 1;
+            x = x * -1;
+        }
+        String s = String.valueOf(x);
+        
+        int length = s.length();
+        
+        System.out.println("STR: "+s + "   Length: " + length);
+        
+        while (x != 0)
+        {
+            int digit = x % 10;
+            x = x/10;
+            
+            double pow = Math.pow(10, (length-i)-1);
+            answer = answer + (digit * pow); 
+            
+            i++;
+        }
+        
+        if (isMinus == 1)
+            return (int)(-1.0 * answer);
+        
+      return (int)answer; 
+        
+    }
+}
